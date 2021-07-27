@@ -20,9 +20,9 @@ namespace VendingMachineController.Tests.Data
             int actualChange;
 
             VendingMachine actualVendingMachine = new VendingMachine();
-            actualVendingMachine.ProductArray.Add(new Drink(1, "Fanta Orange", 11));
-            actualVendingMachine.ProductArray.Add(new Drink(2, "Mineral water", 15));
-            actualVendingMachine.ProductArray.Add(new Drink(3, "Plum juice", 24));
+            actualVendingMachine.ProductArray.Add(new Drink(1, "Orange-flavored drink", 11, 330));
+            actualVendingMachine.ProductArray.Add(new Drink(2, "Mineral water", 15, 500));
+            actualVendingMachine.ProductArray.Add(new Drink(3, "Apple juice", 18, 250));
             actualVendingMachine.ProductArray.Add(new Food(4, "Cheese & ham sandwitch", 40));
             actualVendingMachine.ProductArray.Add(new Food(expectedId, "Croissant", unitPrice));
             actualVendingMachine.ProductArray.Add(new Food(6, "Snack bar", 18));
@@ -52,9 +52,9 @@ namespace VendingMachineController.Tests.Data
             int actualChange;
 
             VendingMachine actualVendingMachine = new VendingMachine();
-            actualVendingMachine.ProductArray.Add(new Drink(1, "Fanta Orange", 11));
-            actualVendingMachine.ProductArray.Add(new Drink(2, "Mineral water", 15));
-            actualVendingMachine.ProductArray.Add(new Drink(3, "Plum juice", 24));
+            actualVendingMachine.ProductArray.Add(new Drink(1, "Orange-flavored drink", 11, 330));
+            actualVendingMachine.ProductArray.Add(new Drink(2, "Mineral water", 15, 500));
+            actualVendingMachine.ProductArray.Add(new Drink(3, "Apple juice", 18, 250));
             actualVendingMachine.ProductArray.Add(new Food(4, "Cheese & ham sandwitch", 40));
             actualVendingMachine.ProductArray.Add(new Food(expectedId, "Croissant", unitPrice));
             actualVendingMachine.ProductArray.Add(new Food(6, "Snack bar", 18));
@@ -83,9 +83,9 @@ namespace VendingMachineController.Tests.Data
             int actualChange;
 
             VendingMachine actualVendingMachine = new VendingMachine();
-            actualVendingMachine.ProductArray.Add(new Drink(1, "Fanta Orange", 11));
-            actualVendingMachine.ProductArray.Add(new Drink(2, "Mineral water", 15));
-            actualVendingMachine.ProductArray.Add(new Drink(3, "Plum juice", 24));
+            actualVendingMachine.ProductArray.Add(new Drink(1, "Orange-flavored drink", 11, 330));
+            actualVendingMachine.ProductArray.Add(new Drink(2, "Mineral water", 15, 500));
+            actualVendingMachine.ProductArray.Add(new Drink(3, "Apple juice", 18, 250));
             actualVendingMachine.ProductArray.Add(new Food(4, "Cheese & ham sandwitch", 40));
             actualVendingMachine.ProductArray.Add(new Food(5, "Croissant", 7));
             actualVendingMachine.ProductArray.Add(new Food(6, "Snack bar", 18));

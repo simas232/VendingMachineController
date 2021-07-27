@@ -12,7 +12,7 @@ namespace VendingMachineController.Tests.Models
             // Arrange
             int expectedId = 1;
             int actualId;
-            Toy actualDrink = new Toy(expectedId, "Fanta Orange", 5);
+            Drink actualDrink = new Drink(expectedId, "Orange-flavored drink", 11, 330);
 
             // Act
             actualId = actualDrink.Id;
@@ -24,9 +24,9 @@ namespace VendingMachineController.Tests.Models
         public void DrinkNameWorks()
         {
             // Arrange
-            String expectedName = "Fanta Orange";
+            String expectedName = "Orange-flavored drink";
             String actualName;
-            Drink actualDrink = new Drink(1, expectedName, 11);
+            Drink actualDrink = new Drink(1, expectedName, 11, 330);
 
             // Act
             actualName = actualDrink.Name;
@@ -40,7 +40,7 @@ namespace VendingMachineController.Tests.Models
             // Arrange
             int expectedPrice = 11;
             int actualPrice;
-            Drink actualDrink = new Drink(1, "Fanta Orange", expectedPrice);
+            Drink actualDrink = new Drink(1, "Orange-flavored drink", expectedPrice, 330);
 
             // Act
             actualPrice = actualDrink.PricePerUnit;

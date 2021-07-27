@@ -10,9 +10,9 @@ namespace VendingMachineController
         {
 
             VendingMachine vMachine = new VendingMachine();
-            vMachine.ProductArray.Add(new Drink(1, "Fanta Orange", 11));
-            vMachine.ProductArray.Add(new Drink(2, "Mineral water", 15));
-            vMachine.ProductArray.Add(new Drink(3, "Plum juice", 24));
+            vMachine.ProductArray.Add(new Drink(1, "Orange-flavored drink", 11, 330));
+            vMachine.ProductArray.Add(new Drink(2, "Mineral water", 15, 500));
+            vMachine.ProductArray.Add(new Drink(3, "Apple juice", 18, 250));
             vMachine.ProductArray.Add(new Food(4, "Cheese & ham sandwitch", 40));
             vMachine.ProductArray.Add(new Food(5, "Croissant", 7));
             vMachine.ProductArray.Add(new Food(6, "Snack bar", 18));
