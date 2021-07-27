@@ -94,9 +94,9 @@ namespace VendingMachineController.Tests.Models
         public void ToyIdWorks()
         {
             // Arrange
-            int expectedId = 1;
+            int expectedId = 7;
             int actualId;
-            Toy actualToy = new Toy(expectedId, "Whistle", 5);
+            Toy actualToy = new Toy(expectedId, "Small figurine", 30, "blue");
 
             // Act
             actualId = actualToy.Id;
@@ -108,9 +108,9 @@ namespace VendingMachineController.Tests.Models
         public void ToyNameWorks()
         {
             // Arrange
-            String expectedName = "Whistle";
+            String expectedName = "Small figurine";
             String actualName;
-            Toy actualToy = new Toy(1, expectedName, 5);
+            Toy actualToy = new Toy(7, expectedName, 30, "blue");
 
             // Act
             actualName = actualToy.Name;
@@ -122,9 +122,9 @@ namespace VendingMachineController.Tests.Models
         public void ToyPriceWorks()
         {
             // Arrange
-            int expectedPrice = 5;
+            int expectedPrice = 30;
             int actualPrice;
-            Toy actualToy = new Toy(1, "Whistle", expectedPrice);
+            Toy actualToy = new Toy(7, "Small figurine", expectedPrice, "blue");
 
             // Act
             actualPrice = actualToy.PricePerUnit;

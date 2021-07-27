@@ -16,9 +16,9 @@ namespace VendingMachineController
             vMachine.ProductArray.Add(new Food(4, "Cheese & ham sandwitch", 40, 140));
             vMachine.ProductArray.Add(new Food(5, "Croissant", 7, 60));
             vMachine.ProductArray.Add(new Food(6, "Snack bar", 18, 30));
-            vMachine.ProductArray.Add(new Toy(7, "Doddo figurine", 30));
-            vMachine.ProductArray.Add(new Toy(8, "Fidget spinner", 10));
-            vMachine.ProductArray.Add(new Toy(9, "Whistle", 5));
+            vMachine.ProductArray.Add(new Toy(7, "Small figurine", 30, "blue"));
+            vMachine.ProductArray.Add(new Toy(8, "Fidget spinner", 10, "red"));
+            vMachine.ProductArray.Add(new Toy(9, "Whistle", 5, "yellow"));
 
             vMachine.ShowAll();
 

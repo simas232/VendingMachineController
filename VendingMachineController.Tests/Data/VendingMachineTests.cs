@@ -26,9 +26,9 @@ namespace VendingMachineController.Tests.Data
             actualVendingMachine.ProductArray.Add(new Food(4, "Cheese & ham sandwitch", 40, 140));
             actualVendingMachine.ProductArray.Add(new Food(expectedId, "Croissant", 7, 60));
             actualVendingMachine.ProductArray.Add(new Food(6, "Snack bar", 18, 30));
-            actualVendingMachine.ProductArray.Add(new Toy(7, "Doddo figurine", 30));
-            actualVendingMachine.ProductArray.Add(new Toy(8, "Fidget spinner", 10));
-            actualVendingMachine.ProductArray.Add(new Toy(9, "Whistle", 5));
+            actualVendingMachine.ProductArray.Add(new Toy(7, "Small figurine", 30, "blue"));
+            actualVendingMachine.ProductArray.Add(new Toy(8, "Fidget spinner", 10, "red"));
+            actualVendingMachine.ProductArray.Add(new Toy(9, "Whistle", 5, "yellow"));
             actualVendingMachine.MoneyPool = startSum;
 
             // Act
@@ -58,9 +58,9 @@ namespace VendingMachineController.Tests.Data
             actualVendingMachine.ProductArray.Add(new Food(4, "Cheese & ham sandwitch", 40, 140));
             actualVendingMachine.ProductArray.Add(new Food(expectedId, "Croissant", unitPrice, 60));
             actualVendingMachine.ProductArray.Add(new Food(6, "Snack bar", 18, 30));
-            actualVendingMachine.ProductArray.Add(new Toy(7, "Doddo figurine", 30));
-            actualVendingMachine.ProductArray.Add(new Toy(8, "Fidget spinner", 10));
-            actualVendingMachine.ProductArray.Add(new Toy(9, "Whistle", 5));
+            actualVendingMachine.ProductArray.Add(new Toy(7, "Small figurine", 30, "blue"));
+            actualVendingMachine.ProductArray.Add(new Toy(8, "Fidget spinner", 10, "red"));
+            actualVendingMachine.ProductArray.Add(new Toy(9, "Whistle", 5, "yellow"));
             actualVendingMachine.MoneyPool = startSum;
 
             // Act
@@ -89,9 +89,9 @@ namespace VendingMachineController.Tests.Data
             actualVendingMachine.ProductArray.Add(new Food(4, "Cheese & ham sandwitch", 40, 140));
             actualVendingMachine.ProductArray.Add(new Food(5, "Croissant", 7, 60));
             actualVendingMachine.ProductArray.Add(new Food(6, "Snack bar", 18, 30));
-            actualVendingMachine.ProductArray.Add(new Toy(7, "Doddo figurine", 30));
-            actualVendingMachine.ProductArray.Add(new Toy(8, "Fidget spinner", 10));
-            actualVendingMachine.ProductArray.Add(new Toy(9, "Whistle", 5));
+            actualVendingMachine.ProductArray.Add(new Toy(7, "Small figurine", 30, "blue"));
+            actualVendingMachine.ProductArray.Add(new Toy(8, "Fidget spinner", 10, "red"));
+            actualVendingMachine.ProductArray.Add(new Toy(9, "Whistle", 5, "yellow"));
             actualVendingMachine.MoneyPool = startSum;
 
             // Act
