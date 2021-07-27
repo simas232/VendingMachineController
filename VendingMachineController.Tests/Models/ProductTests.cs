@@ -52,12 +52,12 @@ namespace VendingMachineController.Tests.Models
         public void FoodIdWorks()
         {
             // Arrange
-            int expectedId = 1;
+            int expectedId = 4;
             int actualId;
-            Food actualToy = new Food(expectedId, "Croissant", 7);
+            Food actualFood = new Food(expectedId, "Cheese & ham sandwitch", 40, 140);
 
             // Act
-            actualId = actualToy.Id;
+            actualId = actualFood.Id;
 
             // Assert
             Assert.Equal(expectedId, actualId);
@@ -66,12 +66,12 @@ namespace VendingMachineController.Tests.Models
         public void FoodNameWorks()
         {
             // Arrange
-            String expectedName = "Croissant";
+            String expectedName = "Cheese & ham sandwitch";
             String actualName;
-            Food actualToy = new Food(1, expectedName, 7);
+            Food actualFood = new Food(4, expectedName, 40, 140);
 
             // Act
-            actualName = actualToy.Name;
+            actualName = actualFood.Name;
 
             // Assert
             Assert.Equal(expectedName, actualName);
@@ -80,12 +80,12 @@ namespace VendingMachineController.Tests.Models
         public void FoodPriceWorks()
         {
             // Arrange
-            int expectedPrice = 7;
+            int expectedPrice = 40;
             int actualPrice;
-            Food actualToy = new Food(1, "Croissant", expectedPrice);
+            Food actualFood = new Food(4, "Cheese & ham sandwitch", expectedPrice, 140);
 
             // Act
-            actualPrice = actualToy.PricePerUnit;
+            actualPrice = actualFood.PricePerUnit;
 
             // Assert
             Assert.Equal(expectedPrice, actualPrice);

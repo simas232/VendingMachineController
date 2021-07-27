@@ -23,9 +23,9 @@ namespace VendingMachineController.Tests.Data
             actualVendingMachine.ProductArray.Add(new Drink(1, "Orange-flavored drink", 11, 330));
             actualVendingMachine.ProductArray.Add(new Drink(2, "Mineral water", 15, 500));
             actualVendingMachine.ProductArray.Add(new Drink(3, "Apple juice", 18, 250));
-            actualVendingMachine.ProductArray.Add(new Food(4, "Cheese & ham sandwitch", 40));
-            actualVendingMachine.ProductArray.Add(new Food(expectedId, "Croissant", unitPrice));
-            actualVendingMachine.ProductArray.Add(new Food(6, "Snack bar", 18));
+            actualVendingMachine.ProductArray.Add(new Food(4, "Cheese & ham sandwitch", 40, 140));
+            actualVendingMachine.ProductArray.Add(new Food(expectedId, "Croissant", 7, 60));
+            actualVendingMachine.ProductArray.Add(new Food(6, "Snack bar", 18, 30));
             actualVendingMachine.ProductArray.Add(new Toy(7, "Doddo figurine", 30));
             actualVendingMachine.ProductArray.Add(new Toy(8, "Fidget spinner", 10));
             actualVendingMachine.ProductArray.Add(new Toy(9, "Whistle", 5));
@@ -55,9 +55,9 @@ namespace VendingMachineController.Tests.Data
             actualVendingMachine.ProductArray.Add(new Drink(1, "Orange-flavored drink", 11, 330));
             actualVendingMachine.ProductArray.Add(new Drink(2, "Mineral water", 15, 500));
             actualVendingMachine.ProductArray.Add(new Drink(3, "Apple juice", 18, 250));
-            actualVendingMachine.ProductArray.Add(new Food(4, "Cheese & ham sandwitch", 40));
-            actualVendingMachine.ProductArray.Add(new Food(expectedId, "Croissant", unitPrice));
-            actualVendingMachine.ProductArray.Add(new Food(6, "Snack bar", 18));
+            actualVendingMachine.ProductArray.Add(new Food(4, "Cheese & ham sandwitch", 40, 140));
+            actualVendingMachine.ProductArray.Add(new Food(expectedId, "Croissant", unitPrice, 60));
+            actualVendingMachine.ProductArray.Add(new Food(6, "Snack bar", 18, 30));
             actualVendingMachine.ProductArray.Add(new Toy(7, "Doddo figurine", 30));
             actualVendingMachine.ProductArray.Add(new Toy(8, "Fidget spinner", 10));
             actualVendingMachine.ProductArray.Add(new Toy(9, "Whistle", 5));
@@ -86,9 +86,9 @@ namespace VendingMachineController.Tests.Data
             actualVendingMachine.ProductArray.Add(new Drink(1, "Orange-flavored drink", 11, 330));
             actualVendingMachine.ProductArray.Add(new Drink(2, "Mineral water", 15, 500));
             actualVendingMachine.ProductArray.Add(new Drink(3, "Apple juice", 18, 250));
-            actualVendingMachine.ProductArray.Add(new Food(4, "Cheese & ham sandwitch", 40));
-            actualVendingMachine.ProductArray.Add(new Food(5, "Croissant", 7));
-            actualVendingMachine.ProductArray.Add(new Food(6, "Snack bar", 18));
+            actualVendingMachine.ProductArray.Add(new Food(4, "Cheese & ham sandwitch", 40, 140));
+            actualVendingMachine.ProductArray.Add(new Food(5, "Croissant", 7, 60));
+            actualVendingMachine.ProductArray.Add(new Food(6, "Snack bar", 18, 30));
             actualVendingMachine.ProductArray.Add(new Toy(7, "Doddo figurine", 30));
             actualVendingMachine.ProductArray.Add(new Toy(8, "Fidget spinner", 10));
             actualVendingMachine.ProductArray.Add(new Toy(9, "Whistle", 5));
