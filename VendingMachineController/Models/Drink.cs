@@ -20,7 +20,7 @@ namespace VendingMachineController.Models
         // Methods
         public override String Examine()
         {
-            return $"Drink Id: {Id} - Name (price per unit; volume (mL)): {Name} ({PricePerUnit} kr; {Volume}\n";
+            return $"Drink Id: {Id} - Name (price per unit; volume): {Name} ({PricePerUnit} kr; {Volume} mL\n";
         }
         public override String Use()
         {
