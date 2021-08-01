@@ -53,20 +53,26 @@ namespace VendingMachineController.Data
             }
             return null;
         }
-        public void ShowAll()
+        public String ShowAll()
         {
-            Console.WriteLine("*** Available Products ***\n");
+            StringBuilder productInfo = new StringBuilder();
+            productInfo.Append("*** Available Products ***\n");
             foreach (Product productItem in ProductArray)
             {
-                Console.Write(productItem.Examine());
+                productInfo.Append(productItem.Examine());
             }
-            Console.WriteLine("**************************\n");
+            productInfo.Append("**************************\n");
+            return productInfo.ToString();
         }
         public void InsertMoney(int moneyToAdd)
         {
             if (CoinTypes.Contains(moneyToAdd))
             {
                 MoneyPool += moneyToAdd;
+            }
+            else
+            {
+                Console.WriteLine("Money to Be Added Is Not A Valid Denominator!");
             }
         }
         public int EndTransaction()
@@ -75,20 +81,5 @@ namespace VendingMachineController.Data
             MoneyPool = 0;
             return moneyToReturn;
         }
-        public void Examine(int productId)
-        {
-            foreach (Product productItem in ProductArray)
-            {
-                if (productItem.Id == productId)
-                {
-                    Console.Write(productItem.Examine());
-                    return;
-                }
-            }
-        }
-        //public void Use(Product )
-        //{
-
-        //}
     }
 }
