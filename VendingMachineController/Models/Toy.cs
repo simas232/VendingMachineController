@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace VendingMachineController.Models
 {
@@ -20,7 +18,7 @@ namespace VendingMachineController.Models
         // Methods
         public override String Examine()
         {
-            return $"Toy Id: {Id} - Name (price per unit; color): {Name} ({PricePerUnit} kr; {Color})\n";
+            return $"Id: {Id} - Name: {Name} ({PricePerUnit} kr; {Color})\n";
         }
         public override String Use()
         {
