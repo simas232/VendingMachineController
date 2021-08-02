@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace VendingMachineController.Models
 {
@@ -7,6 +8,6 @@ namespace VendingMachineController.Models
         public Product Purchase(int productId);
         public String ShowAll();
         public void InsertMoney(int moneyToAdd);
-        public int EndTransaction();
+        public Dictionary<int, int> EndTransaction();
     }
 }

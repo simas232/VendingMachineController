@@ -9,7 +9,7 @@ namespace VendingMachineController.Data
     public class VendingMachine : IVending
     {
         // Fields
-        private readonly int[] coinTypes = new int[] { 1, 5, 10, 20, 50, 100, 500, 1000 };
+        private readonly int[] coinTypes = new int[] { 1000, 500, 100, 50, 20, 10, 5, 1 };
         private List<Product> productArray = new List<Product>();
 
         // Properties
@@ -75,11 +75,18 @@ namespace VendingMachineController.Data
                 Console.WriteLine("Money to Be Added Is Not A Valid Denominator!");
             }
         }
-        public int EndTransaction()
+        public Dictionary<int, int> EndTransaction()
         {
-            int moneyToReturn = MoneyPool;
+            int remainingMoney = MoneyPool;
             MoneyPool = 0;
-            return moneyToReturn;
+
+            Dictionary<int, int> moneyDictionary = new Dictionary<int, int>();
+            foreach (int coinType in CoinTypes)
+            {
+                moneyDictionary.Add(coinType, remainingMoney / coinType);
+                remainingMoney %= coinType;
+            }
+            return moneyDictionary;
         }
     }
 }
