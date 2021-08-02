@@ -7,46 +7,18 @@ namespace VendingMachineController.Tests.Models
     public class FoodTests
     {
         [Fact]
-        public void IdWorks()
+        public void WeightWorks()
         {
             // Arrange
-            int expectedId = 1;
-            int actualId;
-            Food actualToy = new Food(expectedId, "Croissant", 7);
+            int expectedWeight = 140;
+            int actualWeight;
+            Food actualDrink = new Food(4, "Cheese & ham sandwitch", 40, expectedWeight);
 
             // Act
-            actualId = actualToy.Id;
+            actualWeight = actualDrink.Weight;
 
             // Assert
-            Assert.Equal(expectedId, actualId);
-        }
-        [Fact]
-        public void NameWorks()
-        {
-            // Arrange
-            String expectedName = "Croissant";
-            String actualName;
-            Food actualToy = new Food(1, expectedName, 7);
-
-            // Act
-            actualName = actualToy.Name;
-
-            // Assert
-            Assert.Equal(expectedName, actualName);
-        }
-        [Fact]
-        public void PriceWorks()
-        {
-            // Arrange
-            int expectedPrice = 7;
-            int actualPrice;
-            Food actualToy = new Food(1, "Croissant", expectedPrice);
-
-            // Act
-            actualPrice = actualToy.PricePerUnit;
-
-            // Assert
-            Assert.Equal(expectedPrice, actualPrice);
+            Assert.Equal(expectedWeight, actualWeight);
         }
     }
 }

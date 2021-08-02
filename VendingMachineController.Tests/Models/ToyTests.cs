@@ -7,46 +7,18 @@ namespace VendingMachineController.Tests.Models
     public class ToyTests
     {
         [Fact]
-        public void IdWorks()
+        public void WeightWorks()
         {
             // Arrange
-            int expectedId = 1;
-            int actualId;
-            Toy actualToy = new Toy(expectedId, "Whistle", 5);
+            String expectedColor = "blue";
+            String actualColor;
+            Toy actualToy = new Toy(7, "Small figurine", 30, expectedColor);
 
             // Act
-            actualId = actualToy.Id;
+            actualColor = actualToy.Color;
 
             // Assert
-            Assert.Equal(expectedId, actualId);
-        }
-        [Fact]
-        public void NameWorks()
-        {
-            // Arrange
-            String expectedName = "Whistle";
-            String actualName;
-            Toy actualToy = new Toy(1, expectedName, 5);
-
-            // Act
-            actualName = actualToy.Name;
-
-            // Assert
-            Assert.Equal(expectedName, actualName);
-        }
-        [Fact]
-        public void PriceWorks()
-        {
-            // Arrange
-            int expectedPrice = 5;
-            int actualPrice;
-            Toy actualToy = new Toy(1, "Whistle", expectedPrice);
-
-            // Act
-            actualPrice = actualToy.PricePerUnit;
-
-            // Assert
-            Assert.Equal(expectedPrice, actualPrice);
+            Assert.Equal(expectedColor, actualColor);
         }
     }
 }
