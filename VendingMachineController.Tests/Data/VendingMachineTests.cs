@@ -1,8 +1,8 @@
-using System;
 using Xunit;
 using VendingMachineController.Data;
 using VendingMachineController.Models;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace VendingMachineController.Tests.Data
 {
@@ -140,13 +140,17 @@ namespace VendingMachineController.Tests.Data
         {
             // Arrange
             int expectedChange = 12;
-            int actualChange;
-
+            int actualChange = 0;
+            Dictionary<int, int> actualMoneyDictionary;
             VendingMachine actualVendingMachine = new VendingMachine();
             actualVendingMachine.MoneyPool = expectedChange;
 
             // Act
-            actualChange = actualVendingMachine.EndTransaction();
+            actualMoneyDictionary = actualVendingMachine.EndTransaction();
+            foreach (var pair in actualMoneyDictionary)
+            {
+                actualChange += pair.Key * pair.Value;
+            }
 
             // Assert
             Assert.Equal(expectedChange, actualChange);
