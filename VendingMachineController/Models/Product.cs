@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace VendingMachineController.Models
 {
@@ -31,5 +29,9 @@ namespace VendingMachineController.Models
         // Methods
         public abstract String Examine();
         public abstract String Use();
+        public override String ToString()
+        {
+            return Use();
+        }
     }
 }

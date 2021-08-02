@@ -1,22 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace VendingMachineController.Models
 {
     public class Drink : Product
     {
+        // Properties
+        public int Volume { get; set; }
+
         // Constructors
-        public Drink(int id, String name, int pricePerUnit) : base(id, name, pricePerUnit)
+        public Drink(int id, String name, int pricePerUnit, int volume) : base(id, name, pricePerUnit)
         {
             Name = name;
             PricePerUnit = pricePerUnit;
+            Volume = volume;
         }
 
         // Methods
         public override String Examine()
         {
-            return $"Drink Id: {Id} - Name (price per unit): {Name} ({PricePerUnit} kr)\n";
+            return $"Id: {Id} - Name: {Name} ({PricePerUnit} kr; {Volume} mL)\n";
         }
         public override String Use()
         {

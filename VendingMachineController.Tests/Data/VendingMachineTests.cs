@@ -1,8 +1,8 @@
-using System;
 using Xunit;
 using VendingMachineController.Data;
 using VendingMachineController.Models;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace VendingMachineController.Tests.Data
 {
@@ -20,15 +20,15 @@ namespace VendingMachineController.Tests.Data
             int actualChange;
 
             VendingMachine actualVendingMachine = new VendingMachine();
-            actualVendingMachine.ProductArray.Add(new Drink(1, "Fanta Orange", 11));
-            actualVendingMachine.ProductArray.Add(new Drink(2, "Mineral water", 15));
-            actualVendingMachine.ProductArray.Add(new Drink(3, "Plum juice", 24));
-            actualVendingMachine.ProductArray.Add(new Food(4, "Cheese & ham sandwitch", 40));
-            actualVendingMachine.ProductArray.Add(new Food(expectedId, "Croissant", unitPrice));
-            actualVendingMachine.ProductArray.Add(new Food(6, "Snack bar", 18));
-            actualVendingMachine.ProductArray.Add(new Toy(7, "Doddo figurine", 30));
-            actualVendingMachine.ProductArray.Add(new Toy(8, "Fidget spinner", 10));
-            actualVendingMachine.ProductArray.Add(new Toy(9, "Whistle", 5));
+            actualVendingMachine.ProductArray.Add(new Drink(1, "Orange-flavored drink", 11, 330));
+            actualVendingMachine.ProductArray.Add(new Drink(2, "Mineral water", 15, 500));
+            actualVendingMachine.ProductArray.Add(new Drink(3, "Apple juice", 18, 250));
+            actualVendingMachine.ProductArray.Add(new Food(4, "Cheese & ham sandwitch", 40, 140));
+            actualVendingMachine.ProductArray.Add(new Food(expectedId, "Croissant", 7, 60));
+            actualVendingMachine.ProductArray.Add(new Food(6, "Snack bar", 18, 30));
+            actualVendingMachine.ProductArray.Add(new Toy(7, "Small figurine", 30, "blue"));
+            actualVendingMachine.ProductArray.Add(new Toy(8, "Fidget spinner", 10, "red"));
+            actualVendingMachine.ProductArray.Add(new Toy(9, "Whistle", 5, "yellow"));
             actualVendingMachine.MoneyPool = startSum;
 
             // Act
@@ -52,15 +52,15 @@ namespace VendingMachineController.Tests.Data
             int actualChange;
 
             VendingMachine actualVendingMachine = new VendingMachine();
-            actualVendingMachine.ProductArray.Add(new Drink(1, "Fanta Orange", 11));
-            actualVendingMachine.ProductArray.Add(new Drink(2, "Mineral water", 15));
-            actualVendingMachine.ProductArray.Add(new Drink(3, "Plum juice", 24));
-            actualVendingMachine.ProductArray.Add(new Food(4, "Cheese & ham sandwitch", 40));
-            actualVendingMachine.ProductArray.Add(new Food(expectedId, "Croissant", unitPrice));
-            actualVendingMachine.ProductArray.Add(new Food(6, "Snack bar", 18));
-            actualVendingMachine.ProductArray.Add(new Toy(7, "Doddo figurine", 30));
-            actualVendingMachine.ProductArray.Add(new Toy(8, "Fidget spinner", 10));
-            actualVendingMachine.ProductArray.Add(new Toy(9, "Whistle", 5));
+            actualVendingMachine.ProductArray.Add(new Drink(1, "Orange-flavored drink", 11, 330));
+            actualVendingMachine.ProductArray.Add(new Drink(2, "Mineral water", 15, 500));
+            actualVendingMachine.ProductArray.Add(new Drink(3, "Apple juice", 18, 250));
+            actualVendingMachine.ProductArray.Add(new Food(4, "Cheese & ham sandwitch", 40, 140));
+            actualVendingMachine.ProductArray.Add(new Food(expectedId, "Croissant", unitPrice, 60));
+            actualVendingMachine.ProductArray.Add(new Food(6, "Snack bar", 18, 30));
+            actualVendingMachine.ProductArray.Add(new Toy(7, "Small figurine", 30, "blue"));
+            actualVendingMachine.ProductArray.Add(new Toy(8, "Fidget spinner", 10, "red"));
+            actualVendingMachine.ProductArray.Add(new Toy(9, "Whistle", 5, "yellow"));
             actualVendingMachine.MoneyPool = startSum;
 
             // Act
@@ -83,15 +83,15 @@ namespace VendingMachineController.Tests.Data
             int actualChange;
 
             VendingMachine actualVendingMachine = new VendingMachine();
-            actualVendingMachine.ProductArray.Add(new Drink(1, "Fanta Orange", 11));
-            actualVendingMachine.ProductArray.Add(new Drink(2, "Mineral water", 15));
-            actualVendingMachine.ProductArray.Add(new Drink(3, "Plum juice", 24));
-            actualVendingMachine.ProductArray.Add(new Food(4, "Cheese & ham sandwitch", 40));
-            actualVendingMachine.ProductArray.Add(new Food(5, "Croissant", 7));
-            actualVendingMachine.ProductArray.Add(new Food(6, "Snack bar", 18));
-            actualVendingMachine.ProductArray.Add(new Toy(7, "Doddo figurine", 30));
-            actualVendingMachine.ProductArray.Add(new Toy(8, "Fidget spinner", 10));
-            actualVendingMachine.ProductArray.Add(new Toy(9, "Whistle", 5));
+            actualVendingMachine.ProductArray.Add(new Drink(1, "Orange-flavored drink", 11, 330));
+            actualVendingMachine.ProductArray.Add(new Drink(2, "Mineral water", 15, 500));
+            actualVendingMachine.ProductArray.Add(new Drink(3, "Apple juice", 18, 250));
+            actualVendingMachine.ProductArray.Add(new Food(4, "Cheese & ham sandwitch", 40, 140));
+            actualVendingMachine.ProductArray.Add(new Food(5, "Croissant", 7, 60));
+            actualVendingMachine.ProductArray.Add(new Food(6, "Snack bar", 18, 30));
+            actualVendingMachine.ProductArray.Add(new Toy(7, "Small figurine", 30, "blue"));
+            actualVendingMachine.ProductArray.Add(new Toy(8, "Fidget spinner", 10, "red"));
+            actualVendingMachine.ProductArray.Add(new Toy(9, "Whistle", 5, "yellow"));
             actualVendingMachine.MoneyPool = startSum;
 
             // Act
@@ -140,13 +140,17 @@ namespace VendingMachineController.Tests.Data
         {
             // Arrange
             int expectedChange = 12;
-            int actualChange;
-
+            int actualChange = 0;
+            Dictionary<int, int> actualMoneyDictionary;
             VendingMachine actualVendingMachine = new VendingMachine();
             actualVendingMachine.MoneyPool = expectedChange;
 
             // Act
-            actualChange = actualVendingMachine.EndTransaction();
+            actualMoneyDictionary = actualVendingMachine.EndTransaction();
+            foreach (var pair in actualMoneyDictionary)
+            {
+                actualChange += pair.Key * pair.Value;
+            }
 
             // Assert
             Assert.Equal(expectedChange, actualChange);

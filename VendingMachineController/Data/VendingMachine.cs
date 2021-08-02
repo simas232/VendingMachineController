@@ -9,7 +9,7 @@ namespace VendingMachineController.Data
     public class VendingMachine : IVending
     {
         // Fields
-        private readonly int[] coinTypes = new int[] { 1, 5, 10, 20, 50, 100, 500, 1000 };
+        private readonly int[] coinTypes = new int[] { 1000, 500, 100, 50, 20, 10, 5, 1 };
         private List<Product> productArray = new List<Product>();
 
         // Properties
@@ -53,14 +53,16 @@ namespace VendingMachineController.Data
             }
             return null;
         }
-        public void ShowAll()
+        public String ShowAll()
         {
-            Console.WriteLine("*** Available Products ***\n");
+            StringBuilder productInfo = new StringBuilder();
+            productInfo.Append("*** Available Products ***\n");
             foreach (Product productItem in ProductArray)
             {
-                Console.Write(productItem.Examine());
+                productInfo.Append(productItem.Examine());
             }
-            Console.WriteLine("**************************\n");
+            productInfo.Append("**************************\n");
+            return productInfo.ToString();
         }
         public void InsertMoney(int moneyToAdd)
         {
@@ -68,27 +70,23 @@ namespace VendingMachineController.Data
             {
                 MoneyPool += moneyToAdd;
             }
-        }
-        public int EndTransaction()
-        {
-            int moneyToReturn = MoneyPool;
-            MoneyPool = 0;
-            return moneyToReturn;
-        }
-        public void Examine(int productId)
-        {
-            foreach (Product productItem in ProductArray)
+            else
             {
-                if (productItem.Id == productId)
-                {
-                    Console.Write(productItem.Examine());
-                    return;
-                }
+                Console.WriteLine("Money to Be Added Is Not A Valid Denominator!");
             }
         }
-        //public void Use(Product )
-        //{
+        public Dictionary<int, int> EndTransaction()
+        {
+            int remainingMoney = MoneyPool;
+            MoneyPool = 0;
 
-        //}
+            Dictionary<int, int> moneyDictionary = new Dictionary<int, int>();
+            foreach (int coinType in CoinTypes)
+            {
+                moneyDictionary.Add(coinType, remainingMoney / coinType);
+                remainingMoney %= coinType;
+            }
+            return moneyDictionary;
+        }
     }
 }
