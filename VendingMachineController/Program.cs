@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using VendingMachineController.Data;
 using VendingMachineController.Models;
 
@@ -20,6 +21,7 @@ namespace VendingMachineController
             vMachine.ProductArray.Add(new Toy(9, "Whistle", 5, "yellow"));
 
             char userSelection;
+            Dictionary<int, int> moneyDictionary;
             do
             {
                 Console.Clear();
@@ -58,10 +60,16 @@ namespace VendingMachineController
                         BuyItemFromVendingMachine(vMachine, 9);
                         break;
                     case 'R':
-                        Console.WriteLine("Enter The Money Sum to Be Added (1, 5, 10, 20, 50, 100, 500 or 1000)");
+                        Console.WriteLine("Enter The Money Sum to Be Added (1000, 500, 100, 50, 20, 10, 5 or 1)");
                         vMachine.InsertMoney(Convert.ToInt32(Console.ReadLine()));
-                        break;
+                        continue;
                     case 'Q':
+                        Console.WriteLine($"Returned {vMachine.MoneyPool} kr");
+                        moneyDictionary = vMachine.EndTransaction();
+                        foreach (var pair in moneyDictionary)
+                        {
+                            Console.WriteLine($"{pair.Key} banknotes/coins: {pair.Value}");
+                        }
                         return;
                 }
                 Console.WriteLine("Press <Spacebar> to Continue... ");
