@@ -31,7 +31,7 @@ namespace VendingMachineController.Data
                 productArray = value;
             }
         }
-        public int MoneyPool { get; set; }
+        public int MoneyPool { get; private set; }
 
         // Methods
         public Product Purchase(int productId)
