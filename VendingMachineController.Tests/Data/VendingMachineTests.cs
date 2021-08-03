@@ -16,7 +16,7 @@ namespace VendingMachineController.Tests.Data
             int startSum = 20;
             int unitPrice = 7;
             int expectedChange = startSum - unitPrice;
-            Food actualFood;
+            Product actualProduct;
             int actualChange;
 
             VendingMachine actualVendingMachine = new VendingMachine();
@@ -29,15 +29,15 @@ namespace VendingMachineController.Tests.Data
             actualVendingMachine.ProductArray.Add(new Toy(7, "Small figurine", 30, "blue"));
             actualVendingMachine.ProductArray.Add(new Toy(8, "Fidget spinner", 10, "red"));
             actualVendingMachine.ProductArray.Add(new Toy(9, "Whistle", 5, "yellow"));
-            actualVendingMachine.MoneyPool = startSum;
+            actualVendingMachine.InsertMoney(startSum);
 
             // Act
-            actualFood = (Food) actualVendingMachine.Purchase(expectedId);
+            actualProduct = actualVendingMachine.Purchase(expectedId);
             actualChange = actualVendingMachine.MoneyPool;
 
             // Assert
             Assert.Equal(expectedChange, actualChange);
-            Assert.Equal(actualVendingMachine.ProductArray[4], actualFood);
+            Assert.Equal(actualVendingMachine.ProductArray[4], actualProduct);
         }
         [Fact]
         public void Purchase_InsufficientMoneyWorks()
@@ -47,8 +47,8 @@ namespace VendingMachineController.Tests.Data
             int startSum = 6;
             int unitPrice = 7;
             int expectedChange = startSum;
-            Food expectedFood = null;
-            Food actualFood;
+            Product expectedProduct = null;
+            Product actualProduct;
             int actualChange;
 
             VendingMachine actualVendingMachine = new VendingMachine();
@@ -61,15 +61,17 @@ namespace VendingMachineController.Tests.Data
             actualVendingMachine.ProductArray.Add(new Toy(7, "Small figurine", 30, "blue"));
             actualVendingMachine.ProductArray.Add(new Toy(8, "Fidget spinner", 10, "red"));
             actualVendingMachine.ProductArray.Add(new Toy(9, "Whistle", 5, "yellow"));
-            actualVendingMachine.MoneyPool = startSum;
+            // Starting sum should be 6
+            actualVendingMachine.InsertMoney(5);
+            actualVendingMachine.InsertMoney(1);
 
             // Act
-            actualFood = (Food) actualVendingMachine.Purchase(expectedId);
+            actualProduct = actualVendingMachine.Purchase(expectedId);
             actualChange = actualVendingMachine.MoneyPool;
 
             // Assert
             Assert.Equal(expectedChange, actualChange);
-            Assert.Equal(expectedFood, actualFood);
+            Assert.Equal(expectedProduct, actualProduct);
         }
         [Fact]
         public void PurchaseNonExistentProductWorks()
@@ -78,8 +80,8 @@ namespace VendingMachineController.Tests.Data
             int expectedId = 99;
             int startSum = 100;
             int expectedChange = startSum;
-            Drink expectedDrink = null;
-            Drink actualDrink;
+            Product expectedProduct = null;
+            Product actualProduct;
             int actualChange;
 
             VendingMachine actualVendingMachine = new VendingMachine();
@@ -92,15 +94,15 @@ namespace VendingMachineController.Tests.Data
             actualVendingMachine.ProductArray.Add(new Toy(7, "Small figurine", 30, "blue"));
             actualVendingMachine.ProductArray.Add(new Toy(8, "Fidget spinner", 10, "red"));
             actualVendingMachine.ProductArray.Add(new Toy(9, "Whistle", 5, "yellow"));
-            actualVendingMachine.MoneyPool = startSum;
+            actualVendingMachine.InsertMoney(startSum);
 
             // Act
-            actualDrink = (Drink) actualVendingMachine.Purchase(expectedId);
+            actualProduct = actualVendingMachine.Purchase(expectedId);
             actualChange = actualVendingMachine.MoneyPool;
 
             // Assert
             Assert.Equal(expectedChange, actualChange);
-            Assert.Equal(expectedDrink, actualDrink);
+            Assert.Equal(expectedProduct, actualProduct);
         }
         [Fact]
         public void AddMoney_GoodDenominatorsWorks()
@@ -127,7 +129,7 @@ namespace VendingMachineController.Tests.Data
             int incorrectDenominator = 15;
             int expectedMoneySum = 50;
 
-            actualVendingMachine.MoneyPool = 50;
+            actualVendingMachine.InsertMoney(expectedMoneySum);
 
             // Act
             actualVendingMachine.InsertMoney(incorrectDenominator);
@@ -143,7 +145,9 @@ namespace VendingMachineController.Tests.Data
             int actualChange = 0;
             Dictionary<int, int> actualMoneyDictionary;
             VendingMachine actualVendingMachine = new VendingMachine();
-            actualVendingMachine.MoneyPool = expectedChange;
+            actualVendingMachine.InsertMoney(10);
+            actualVendingMachine.InsertMoney(1);
+            actualVendingMachine.InsertMoney(1);
 
             // Act
             actualMoneyDictionary = actualVendingMachine.EndTransaction();
@@ -159,12 +163,14 @@ namespace VendingMachineController.Tests.Data
         public void EndTransaction_MoneyPoolResetWorks()
         {
             // Arrange
-            int moneyPool = 12;
+            int[] moneyPool = { 10, 1, 1 };
             int expectedMoneyPool = 0;
             int actualMoneyPool;
 
             VendingMachine actualVendingMachine = new VendingMachine();
-            actualVendingMachine.MoneyPool = moneyPool;
+            actualVendingMachine.InsertMoney(moneyPool[0]);
+            actualVendingMachine.InsertMoney(moneyPool[1]);
+            actualVendingMachine.InsertMoney(moneyPool[2]);
 
             // Act
             actualVendingMachine.EndTransaction();
